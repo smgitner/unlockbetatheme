@@ -36,8 +36,9 @@
         }
 
         .newshouse-logo {
-            height: 38px;
-            width: 204px;
+            height: auto;
+            width: 100%;
+            max-width: 204px;
         }
 
         .navbar {
@@ -56,8 +57,8 @@
         }
 
         .main-logo {
-            height: 59px;
-            width: 180px;
+            height: auto;
+            width: 100%;
         }
 
         .nav-links {
@@ -99,6 +100,62 @@
             transform: rotate(180deg);
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1000;
+        }
+
+        .hamburger-line {
+            width: 25px;
+            height: 3px;
+            background-color: #274060;
+            margin: 3px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        /* Close Menu Button */
+        .close-menu {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .close-menu:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
         /* Main Content Area */
         .main-content {
             flex: 1;
@@ -119,7 +176,7 @@
             min-height: 500px;
         }
 
-AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4Ag
+AAV+AArsABXIEDuAIHcAUO4AocwBUgCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4AgdwBQ7gChzAFTiAK3AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQO4Ag
 
         .footer-title {
             position: absolute;
@@ -143,6 +200,25 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
             color: #f4d58d;
         }
 
+        .footer-logos {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            width: 200px;
+        }
+
+        .footer-logo {
+            height: auto;
+            width: 100%;
+        }
+
         .footer-links {
             position: absolute;
             top: 240px;
@@ -152,6 +228,7 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
             justify-content: space-between;
             align-items: center;
             z-index: 5;
+            margin: 40px 0 20px 0;
         }
 
         .footer-nav {
@@ -228,9 +305,12 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
 
         .credits-logo {
             height: 34px;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: transparent;
             padding: 8px;
             border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .credits-text {
@@ -264,55 +344,124 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
         @media (max-width: 768px) {
             .navbar {
                 padding: 0 16px;
-                flex-direction: column;
-                height: auto;
-                gap: 16px;
-                padding-top: 16px;
-                padding-bottom: 16px;
+                height: 80px;
+                justify-content: space-between;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .close-menu {
+                display: block;
             }
 
             .nav-links {
-                flex-wrap: wrap;
-                gap: 16px;
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background-color: #274060;
+                flex-direction: column;
                 justify-content: center;
+                align-items: center;
+                gap: 32px;
+                transition: right 0.3s ease;
+                z-index: 999;
+                box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                right: 0;
             }
 
             .nav-link {
-                font-size: 14px;
+                color: white;
+                font-size: 16px;
+                font-weight: 700;
+                padding: 10px 0;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link:hover {
+                color: #f4d58d;
+                transform: translateY(-2px);
+            }
+
+            .footer {
+                position: relative;
+                min-height: auto;
+                padding: 40px 16px;
+            }
+
+            .footer-image {
+                position: relative;
+                height: 200px;
+                margin-bottom: 30px;
+            }
+
+            .footer-logos {
+                position: relative;
+                top: auto;
+                margin-bottom: 30px;
             }
 
             .footer-links {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
                 flex-direction: column;
-                gap: 24px;
-                align-items: flex-start;
-                left: 16px;
-                right: 16px;
+                gap: 32px;
+                align-items: center;
+                text-align: center;
+                margin-bottom: 30px;
             }
 
             .footer-nav {
-                flex-wrap: wrap;
-                gap: 16px;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                width: 100%;
             }
 
             .footer-nav-link {
-                font-size: 14px;
+                font-size: 16px;
+                padding: 8px 0;
+            }
+
+            .social-links {
+                justify-content: center;
+                gap: 16px;
             }
 
             .footer-title h1 {
                 font-size: 32px;
             }
 
-            .footer-credits {
-                flex-direction: column;
-                gap: 16px;
-                text-align: center;
-                left: 16px;
-                right: 16px;
+            .footer-divider {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                margin: 30px 0;
             }
 
-            .footer-divider {
-                left: 16px;
-                right: 16px;
+            .footer-credits {
+                position: relative;
+                top: auto;
+                left: auto;
+                right: auto;
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .credits-logos {
+                justify-content: center;
+                gap: 20px;
             }
         }
 
@@ -322,13 +471,14 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
             }
 
             .newshouse-logo {
-                height: 30px;
-                width: 160px;
+                height: auto;
+                width: 100%;
+                max-width: 160px;
             }
 
             .main-logo {
-                height: 45px;
-                width: 140px;
+                height: auto;
+                width: 100%;
             }
 
             .nav-links {
@@ -389,30 +539,33 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
     <header class="header">
         <!-- The Newshouse Bar -->
         <div class="newshouse-bar">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='204' height='38' viewBox='0 0 204 38'%3E%3Ctext x='102' y='19' text-anchor='middle' dominant-baseline='middle' fill='white' font-family='Barlow' font-size='16' font-weight='700'%3ETHE NEWSHOUSE%3C/text%3E%3C/svg%3E" 
+            <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/newshouse-logo.png" 
                  alt="The Newshouse" class="newshouse-logo">
         </div>
         
         <!-- Navigation Bar -->
         <nav class="navbar">
             <div class="logo-container">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='59' viewBox='0 0 180 59'%3E%3Ctext x='10' y='20' fill='%23274060' font-family='Barlow Condensed' font-size='16' font-weight='700'%3EUNLOCKING%3C/text%3E%3Ctext x='10' y='40' fill='%236b9ac4' font-family='Barlow Condensed' font-size='16' font-weight='700'%3ENEW YORK%3C/text%3E%3C/svg%3E" 
+                <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/unlocking-logo.png" 
                      alt="Unlocking New York" class="main-logo">
             </div>
             
-            <ul class="nav-links">
-                <li><a href="#" class="nav-link">Link</a></li>
-                <li><a href="#" class="nav-link">Linke</a></li>
-                <li><a href="#" class="nav-link">Link</a></li>
-                <li>
-                    <a href="#" class="nav-link nav-link-dropdown">
-                        Link
-                        <svg class="dropdown-arrow" viewBox="0 0 9 5" fill="currentColor">
-                            <path d="M0 0l4.5 4.5L9 0z"/>
-                        </svg>
-                    </a>
-                </li>
-                <li><a href="#" class="nav-link">Link</a></li>
+            <!-- Hamburger Menu Button -->
+            <button class="hamburger" id="hamburger">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <button class="close-menu" id="close-menu">×</button>
+                <li><a href="#" class="nav-link">Echos of Erie</a></li>
+                <li><a href="#" class="nav-link">Profiles & People</a></li>
+                <li><a href="#" class="nav-link">Arts & Culture</a></li>
+                <li><a href="#" class="nav-link">Sports & Rec</a></li>
+                <li><a href="#" class="nav-link">Canal Keepers</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+          
             </ul>
         </nav>
     </header>
@@ -430,19 +583,15 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
 
     <!-- Footer -->
     <footer class="footer">
-	    
-
-
-	    
-	 
-    
-        <div class="footer-background"></div>
+        <div class="footer-image">
+            <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/ship-icon.png" alt="Ship Icon" style="width: 100%; height: auto;">
+        </div>
         
-        <div class="footer-title">
-            <h1>
-                <span class="highlight">UNLOCKING</span><br>
-                NEW YORK
-            </h1>
+       
+        
+        <div class="footer-logos">
+            <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/unlocking.png" alt="Unlocking" class="footer-logo">
+            <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/newyork.png" alt="New York" class="footer-logo">
         </div>
         
         <div class="footer-links">
@@ -456,11 +605,21 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
             </ul>
             
             <div class="social-links">
-                <a href="#" class="social-link" title="Facebook">f</a>
-                <a href="#" class="social-link" title="Instagram">i</a>
-                <a href="#" class="social-link" title="Twitter/X">x</a>
-                <a href="#" class="social-link" title="LinkedIn">in</a>
-                <a href="#" class="social-link" title="YouTube">y</a>
+                <a href="#" class="social-link" title="Facebook">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" class="social-link" title="Instagram">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" class="social-link" title="Twitter/X">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/X.png" alt="X" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" class="social-link" title="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/LinkedIn.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+                </a>
+                <a href="#" class="social-link" title="YouTube">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Youtube.png" alt="YouTube" style="width: 24px; height: 24px;">
+                </a>
             </div>
         </div>
         
@@ -468,8 +627,12 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
         
         <div class="footer-credits">
             <div class="credits-logos">
-                <div class="credits-logo">SU</div>
-                <div class="credits-logo">NH</div>
+                <div class="credits-logo">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/waer-logo.png" alt="SU" style="width: 100%; height: auto;">
+                </div>
+                <div class="credits-logo">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/nhlogo_white.png" alt="NH" style="width: 100%; height: auto;">
+                </div>
             </div>
             
             <div class="credits-text">
@@ -482,5 +645,47 @@ AAV+AArsABXIEDuAIHcAUO4AocwBU4gCtwAFfgAK7AAVyBA7gCB3AFDuAKHMAVOIArcABX4ACuwAFcgQ
             </div>
         </div>
     </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        const closeMenu = document.getElementById('close-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        const navLinkItems = document.querySelectorAll('.nav-link');
+        navLinkItems.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>

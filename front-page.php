@@ -1,9 +1,8 @@
 <?php
 /**
- * The main template file
+ * The front page template file
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
+ * This is the template that displays the front page when a static front page is set.
  */
 
 get_header(); ?>
@@ -18,7 +17,7 @@ get_header(); ?>
                 ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <?php
-                    // Display the post content (supports Gutenberg blocks)
+                    // Display the page content (supports Gutenberg blocks)
                     the_content();
                     
                     // Display pagination for multi-page posts
@@ -30,14 +29,6 @@ get_header(); ?>
                 </article>
                 <?php
             endwhile;
-        else :
-            ?>
-            <div class="no-posts">
-                <h2><?php _e('Nothing Found', 'unlocking-newyork'); ?></h2>
-                <p><?php _e('It seems we can\'t find what you\'re looking for. Perhaps searching can help.', 'unlocking-newyork'); ?></p>
-                <?php get_search_form(); ?>
-            </div>
-            <?php
         endif;
         ?>
     </div>

@@ -1,149 +1,132 @@
-</div><!-- #content -->
-
-    <footer id="colophon" class="site-footer">
-        <!-- Wave Divider -->
-        <div class="wave-divider">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0,60 Q300,0 600,60 T1200,60 L1200,120 L0,120 Z" fill="#2c3e50"/>
-            </svg>
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-image">
+        <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/ship-icon.png" alt="Ship Icon" style="width: 100%; height: auto;">
+    </div>
+    
+    <div class="footer-logos">
+        <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/unlocking.png" alt="Unlocking" class="footer-logo">
+        <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/newyork.png" alt="New York" class="footer-logo">
+    </div>
+    
+    <div class="footer-links">
+        <?php
+        wp_nav_menu(array(
+            'theme_location' => 'footer',
+            'menu_class'     => 'footer-nav',
+            'container'      => false,
+            'fallback_cb'    => 'unlocking_newyork_footer_fallback_menu',
+        ));
+        ?>
+        
+        <div class="social-links">
+            <?php
+            $social_links = unlocking_newyork_get_social_links();
+            
+            if (!empty($social_links['facebook'])) : ?>
+                <a href="<?php echo esc_url($social_links['facebook']); ?>" class="social-link" title="Facebook">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Facebook.png" alt="Facebook" style="width: 24px; height: 24px;">
+                </a>
+            <?php endif;
+            
+            if (!empty($social_links['instagram'])) : ?>
+                <a href="<?php echo esc_url($social_links['instagram']); ?>" class="social-link" title="Instagram">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+                </a>
+            <?php endif;
+            
+            if (!empty($social_links['twitter'])) : ?>
+                <a href="<?php echo esc_url($social_links['twitter']); ?>" class="social-link" title="Twitter/X">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/X.png" alt="X" style="width: 24px; height: 24px;">
+                </a>
+            <?php endif;
+            
+            if (!empty($social_links['linkedin'])) : ?>
+                <a href="<?php echo esc_url($social_links['linkedin']); ?>" class="social-link" title="LinkedIn">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/LinkedIn.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+                </a>
+            <?php endif;
+            
+            if (!empty($social_links['youtube'])) : ?>
+                <a href="<?php echo esc_url($social_links['youtube']); ?>" class="social-link" title="YouTube">
+                    <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/Icon/Youtube.png" alt="YouTube" style="width: 24px; height: 24px;">
+                </a>
+            <?php endif; ?>
+        </div>
+    </div>
+    
+    <div class="footer-divider"></div>
+    
+    <div class="footer-credits">
+        <div class="credits-logos">
+            <div class="credits-logo">
+                <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/waer-logo.png" alt="SU" style="width: 100%; height: auto;">
+            </div>
+            <div class="credits-logo">
+                <img src="https://raw.githubusercontent.com/smgitner/gitnerfiles/master/assets/images/nhlogo_white.png" alt="NH" style="width: 100%; height: auto;">
+            </div>
         </div>
         
-        <div class="footer-content">
-            <div class="container">
-                <!-- Footer Logo -->
-                <div class="footer-logo">
-                    <div class="ship-icon">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ship-icon.png" 
-                             alt="<?php esc_attr_e('Ship Icon', 'unlocking-ny'); ?>" />
-                    </div>
-                    <h2><?php esc_html_e('UNLOCKING', 'unlocking-ny'); ?><br><?php esc_html_e('NEW YORK', 'unlocking-ny'); ?></h2>
-                </div>
-                
-                <!-- Footer Navigation -->
-                <nav class="footer-navigation">
-                    <?php
-                    wp_nav_menu(array(
-                        'theme_location' => 'footer',
-                        'menu_class' => 'footer-menu',
-                        'container' => false,
-                        'fallback_cb' => 'unlocking_ny_footer_menu_fallback',
-                    ));
-                    ?>
-                </nav>
-                
-                <!-- Social Media -->
-                <div class="social-media">
-                    <?php
-                    $social_networks = array(
-                        'facebook' => 'fab fa-facebook-f',
-                        'instagram' => 'fab fa-instagram',
-                        'twitter' => 'fab fa-x-twitter',
-                        'linkedin' => 'fab fa-linkedin-in',
-                        'youtube' => 'fab fa-youtube'
-                    );
-                    
-                    foreach ($social_networks as $network => $icon) {
-                        $url = unlocking_get_social_url($network);
-                        if ($url) {
-                            echo '<a href="' . esc_url($url) . '" class="social-link ' . esc_attr($network) . '" target="_blank" rel="noopener noreferrer">';
-                            echo '<i class="' . esc_attr($icon) . '"></i>';
-                            echo '<span class="screen-reader-text">' . sprintf(esc_html__('Visit our %s page', 'unlocking-ny'), ucfirst($network)) . '</span>';
-                            echo '</a>';
-                        }
-                    }
-                    ?>
-                </div>
-                
-                <!-- Footer Widgets -->
-                <?php if (is_active_sidebar('footer-widgets')) : ?>
-                    <div class="footer-widgets">
-                        <?php dynamic_sidebar('footer-widgets'); ?>
-                    </div>
-                <?php endif; ?>
-            </div><!-- .container -->
-            
-            <!-- Footer Bottom -->
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="waer-logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/waer-logo.png" 
-                             alt="<?php esc_attr_e('WAER 88.3', 'unlocking-ny'); ?>" />
-                    </div>
-                    <div class="footer-text">
-                        <p><?php echo esc_html(get_theme_mod('unlocking_footer_text', '© 2025 Copyright Syracuse University.')); ?></p>
-                        <p><?php esc_html_e('The S.I. Newhouse School of Public Communications', 'unlocking-ny'); ?></p>
-                        <p><?php esc_html_e('215 University Place, Syracuse, NY 13244', 'unlocking-ny'); ?></p>
-                    </div>
-                </div><!-- .container -->
-            </div><!-- .footer-bottom -->
-        </div><!-- .footer-content -->
-    </footer><!-- #colophon -->
-    
-    <!-- Back to Top Button -->
-    <button class="back-to-top" aria-label="<?php esc_attr_e('Back to top', 'unlocking-ny'); ?>">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-</div><!-- #page -->
-
-<?php wp_footer(); ?>
+        <div class="credits-text">
+            <p>© <?php echo date('Y'); ?> Copyright Syracuse University.</p>
+            <br>
+            <p>
+                The S.I. Newhouse School of Public Communications<br>
+                215 University Place, Syracuse, NY 13244
+            </p>
+        </div>
+    </div>
+</footer>
 
 <script>
-// Mobile menu toggle and back to top functionality
-jQuery(document).ready(function($) {
-    // Mobile menu toggle
-    $('.menu-toggle').on('click', function() {
-        $(this).toggleClass('active');
-        $('.nav-menu').toggleClass('toggled');
-        
-        // Update aria-expanded
-        var expanded = $(this).attr('aria-expanded') === 'true' || false;
-        $(this).attr('aria-expanded', !expanded);
+// Mobile Navigation Toggle
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+const closeMenu = document.getElementById('close-menu');
+
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
     });
-    
-    // Back to top button
-    $(window).scroll(function() {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn();
-        } else {
-            $('.back-to-top').fadeOut();
-        }
+}
+
+if (closeMenu && navLinks) {
+    closeMenu.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
     });
-    
-    $('.back-to-top').click(function() {
-        $('html, body').animate({scrollTop: 0}, 800);
-        return false;
-    });
-    
-    // Smooth scroll for anchor links
-    $('a[href*="#"]:not([href="#"])').click(function() {
-        if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            if (target.length) {
-                $('html, body').animate({
-                    scrollTop: target.offset().top - 100
-                }, 1000);
-                return false;
-            }
+}
+
+// Close mobile menu when clicking on a link
+const navLinkItems = document.querySelectorAll('.nav-link');
+navLinkItems.forEach(link => {
+    link.addEventListener('click', () => {
+        if (hamburger && navLinks) {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
         }
     });
 });
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (hamburger && navLinks && !hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && hamburger && navLinks) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
 </script>
+
+<?php wp_footer(); ?>
 
 </body>
 </html>
-
-<?php
-/**
- * Footer menu fallback
- */
-function unlocking_ny_footer_menu_fallback() {
-    echo '<ul class="footer-menu">';
-    echo '<li><a href="' . esc_url(home_url('/')) . '">' . esc_html__('Home', 'unlocking-ny') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/about')) . '">' . esc_html__('About', 'unlocking-ny') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/privacy-policy')) . '">' . esc_html__('Privacy Policy', 'unlocking-ny') . '</a></li>';
-    echo '<li><a href="' . esc_url(home_url('/contact')) . '">' . esc_html__('Contact', 'unlocking-ny') . '</a></li>';
-    echo '</ul>';
-}
-?>
