@@ -71,10 +71,13 @@
  * Fallback menu if no menu is assigned
  */
 function unlocking_newyork_fallback_menu() {
-    echo '<ul class="menu-list">';
-    echo '<li><a href="' . home_url('/') . '" class="menu-link">Home</a></li>';
-    echo '<li><a href="' . home_url('/about') . '" class="menu-link">About</a></li>';
-    echo '<li><a href="' . home_url('/contact') . '" class="menu-link">Contact</a></li>';
+    echo '<ul>';
+    echo '<li><a href="' . home_url('/') . '">Echos of Erie</a></li>';
+    echo '<li><a href="' . home_url('/profiles') . '">Profiles & People</a></li>';
+    echo '<li><a href="' . home_url('/arts-culture') . '">Arts & Culture</a></li>';
+    echo '<li><a href="' . home_url('/sports') . '">Sports & Rec</a></li>';
+    echo '<li><a href="' . home_url('/canal-keepers') . '">Canal Keepers</a></li>';
+    echo '<li><a href="' . home_url('/about') . '">About</a></li>';
     echo '</ul>';
 }
 ?>
