@@ -258,6 +258,24 @@ body {
     font-size: 18px;
 }
 
+/* Core Content Styling */
+.wp-block-paragraph,
+p {
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+    line-height: 1.6;
+}
+
+/* Container for all content */
+.entry-content,
+.content-area {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
 /* Footer Styles */
 .footer {
     background-color: #274060;
