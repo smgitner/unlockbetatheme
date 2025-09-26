@@ -234,9 +234,8 @@ function unlocking_newyork_block_support() {
     add_theme_support('align-wide');
     add_theme_support('wp-block-styles');
     add_theme_support('responsive-embeds');
-    add_theme_support('editor-color-palette');
-    add_theme_support('editor-font-sizes');
-    add_theme_support('editor-gradient-presets');
+    // Note: editor-color-palette, editor-font-sizes, and editor-gradient-presets
+    // are now handled by theme.json file instead of theme support declarations
     add_theme_support('custom-spacing');
     add_theme_support('custom-line-height');
     add_theme_support('experimental-link-color');

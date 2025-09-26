@@ -31,21 +31,38 @@
         </div>
         
         <!-- Hamburger Menu Button -->
-        <button class="hamburger" id="hamburger">
+        <button class="hamburger-menu-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </button>
         
-        <?php
-        wp_nav_menu(array(
-            'theme_location' => 'primary',
-            'menu_id'        => 'nav-links',
-            'menu_class'     => 'nav-links',
-            'container'      => false,
-            'fallback_cb'    => 'unlocking_newyork_fallback_menu',
-        ));
-        ?>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay">
+            <div class="mobile-menu-content">
+                <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">×</button>
+                <?php
+                wp_nav_menu(array(
+                    'theme_location' => 'primary',
+                    'menu_class'     => 'mobile-nav-links',
+                    'container'      => false,
+                    'fallback_cb'    => 'unlocking_newyork_fallback_menu',
+                ));
+                ?>
+            </div>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="desktop-nav">
+            <?php
+            wp_nav_menu(array(
+                'theme_location' => 'primary',
+                'menu_class'     => 'desktop-nav-links',
+                'container'      => false,
+                'fallback_cb'    => 'unlocking_newyork_fallback_menu',
+            ));
+            ?>
+        </div>
     </nav>
 </header>
 
@@ -54,11 +71,10 @@
  * Fallback menu if no menu is assigned
  */
 function unlocking_newyork_fallback_menu() {
-    echo '<ul class="nav-links" id="nav-links">';
-    echo '<button class="close-menu" id="close-menu">×</button>';
-    echo '<li><a href="' . home_url('/') . '" class="nav-link">Home</a></li>';
-    echo '<li><a href="' . home_url('/about') . '" class="nav-link">About</a></li>';
-    echo '<li><a href="' . home_url('/contact') . '" class="nav-link">Contact</a></li>';
+    echo '<ul class="menu-list">';
+    echo '<li><a href="' . home_url('/') . '" class="menu-link">Home</a></li>';
+    echo '<li><a href="' . home_url('/about') . '" class="menu-link">About</a></li>';
+    echo '<li><a href="' . home_url('/contact') . '" class="menu-link">Contact</a></li>';
     echo '</ul>';
 }
 ?>
