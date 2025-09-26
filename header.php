@@ -70,14 +70,32 @@
 /**
  * Fallback menu if no menu is assigned
  */
-function unlocking_newyork_fallback_menu() {
-    echo '<ul>';
-    echo '<li><a href="' . home_url('/') . '">Echos of Erie</a></li>';
-    echo '<li><a href="' . home_url('/profiles') . '">Profiles & People</a></li>';
-    echo '<li><a href="' . home_url('/arts-culture') . '">Arts & Culture</a></li>';
-    echo '<li><a href="' . home_url('/sports') . '">Sports & Rec</a></li>';
-    echo '<li><a href="' . home_url('/canal-keepers') . '">Canal Keepers</a></li>';
-    echo '<li><a href="' . home_url('/about') . '">About</a></li>';
+function unlocking_newyork_fallback_menu($args = array()) {
+    $menu_items = array(
+        array('label' => 'Echos of Erie',    'url' => home_url('/')),
+        array('label' => 'Profiles & People', 'url' => home_url('/profiles')),
+        array('label' => 'Arts & Culture',    'url' => home_url('/arts-culture')),
+        array('label' => 'Sports & Rec',      'url' => home_url('/sports')),
+        array('label' => 'Canal Keepers',     'url' => home_url('/canal-keepers')),
+        array('label' => 'About',             'url' => home_url('/about')),
+    );
+
+    $menu_class = isset($args['menu_class']) && $args['menu_class']
+        ? ' class="' . esc_attr($args['menu_class']) . '"'
+        : '';
+
+    $menu_id = isset($args['menu_id']) && $args['menu_id']
+        ? ' id="' . esc_attr($args['menu_id']) . '"'
+        : '';
+
+    echo '<ul' . $menu_id . $menu_class . '>';
+
+    foreach ($menu_items as $item) {
+        echo '<li class="menu-item">';
+        echo '<a href="' . esc_url($item['url']) . '">' . esc_html($item['label']) . '</a>';
+        echo '</li>';
+    }
+
     echo '</ul>';
 }
 ?>

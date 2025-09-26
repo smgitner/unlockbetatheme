@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Menu link click events
-    const menuLinks = document.querySelectorAll('.mobile-nav-links .menu-link');
+    const menuLinks = document.querySelectorAll('.mobile-nav-links a');
     menuLinks.forEach(function(link) {
         link.addEventListener('click', function() {
             closeMobileMenu();
